@@ -1,0 +1,207 @@
+🌊 Wavein AI Verifier — AI Meets Blockchain on Sui
+
+Wavein AI Verifier is a lightweight verification system that combines AI analysis with Sui blockchain transparency.
+This repository currently deploys the React frontend on Vercel, while the AI backend (Node.js) and on-chain logic are still running locally for the hackathon demo.
+
+All functionalities — including AI processing, verification hashing, and blockchain flow — are demonstrated through the project’s video demo, as required by the competition.
+
+
+---
+
+✨ Features
+
+🌐 1. Live Frontend (Vercel Deployment)
+
+Modern React UI
+
+Input field for verification
+
+Connect wallet button (via Sui Wallet Kit)
+
+Clean UX optimized for demo presentations
+
+
+🤖 2. AI Verification Engine (Local Only for Now)
+
+Shown in the video demo:
+
+Local Node.js AI server
+
+Text evaluation and reasoning
+
+Generates a “Verification Summary”
+
+Computes hashes for blockchain storage
+
+
+🔗 3. Blockchain Integration (Concept + UI)
+
+Designed for:
+
+Storing verification hashes on Sui
+
+Future on-chain verification module (Move)
+
+Conceptual architecture shown in demo
+
+
+
+---
+
+🎥 Project Demo Video
+
+This video shows everything working together:
+
+AI verification
+
+Wallet connection
+
+Blockchain storage concept
+
+Full user flow
+
+Explanation & presenter intro
+
+
+👉 Demo Video: https://youtu.be/Q9b1HWsXhmg
+
+
+---
+
+🧠 Why Backend AI is Not Online Yet
+
+Some technical limitations during the hackathon:
+
+Vercel does not support persistent AI servers
+
+AI model requires a dedicated backend (Railway / Render / Docker)
+
+Time constraints
+
+Focus placed on delivering a complete demo & concept instead of full online deployment
+
+
+This is fully acceptable and common in hackathons.
+
+
+---
+
+📁 Project Structure
+
+wavein_ai_verifier/
+│
+├── frontend/              # React app (LIVE on Vercel)
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── ...
+│
+├── ai-server/             # Node.js AI engine (LOCAL only)
+│   ├── server.js
+│   ├── package.json
+│   └── ...
+│
+└── README.md
+
+
+---
+
+🛠 Running Locally
+
+⿡ Clone the repo
+
+git clone https://github.com/Flappybi/wavein_ai_verifire
+
+
+---
+
+⿢ Start Frontend (React)
+
+cd frontend
+npm install
+npm run dev
+
+Frontend will run at:
+
+http://localhost:5173
+
+
+---
+
+⿣ Start AI Backend (Optional for Reviewers)
+
+cd ai-server
+npm install
+node server.js
+
+Backend will run at:
+
+http://localhost:3000
+
+
+---
+
+🚀 Live Deployment
+
+Frontend (Vercel):
+👉 https://YOUR-VERCEL-URL.vercel.app/
+
+Backend:
+❌ Not deployed yet (local only)
+
+
+---
+
+🛣 Roadmap (Post-Hackathon Improvements)
+
+Deploy AI backend to Railway / Render
+
+Implement on-chain Move verification module
+
+Add hash explorer page
+
+Add signature-based validation
+
+Store AI verification results permanently using Walrus
+
+Add model tuning & better scoring
+
+
+
+---
+
+🧩 Tech Stack
+
+React 19 + Vite
+
+Sui Wallet Kit
+
+Groq SDK (local AI)
+
+Node.js Express (local backend)
+
+Walrus (future file storage integration)
+
+Move (future blockchain module)
+
+
+
+---
+
+📌 Notes for Judges
+
+Wavein AI Verifier focuses on:
+
+clear AI + blockchain UX
+
+strong conceptual architecture
+
+full demo presentation
+
+fully working local version
+
+live frontend UI
+
+
+This submission emphasizes clarity, practicality, and future potential — aligned with hackathon goals.
+
