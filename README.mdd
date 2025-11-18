@@ -1,190 +1,184 @@
-🌊 Wavein AI Verifier — AI Meets Blockchain on Sui
+🚀 Wavein AI Verifier
+AI-Powered Text Authenticity Detection with On-Chain Transparency
 
-Wavein AI Verifier is a lightweight verification system that combines AI analysis with Sui blockchain transparency.
-This repository currently deploys the React frontend on Vercel, while the AI backend (Node.js) and on-chain logic are still running locally for the hackathon demo.
+Wavein AI Verifier is a hybrid AI system designed to determine whether a piece of text is written by a human or by an AI model.
+It combines:
 
-All functionalities — including AI processing, verification hashing, and blockchain flow — are demonstrated through the project’s video demo, as required by the competition.
+Groq Llama 3.1 semantic analysis
 
+Local linguistic & readability scoring
 
----
+Hybrid confidence fusion
 
-✨ Features
+On-chain verification using Sui blockchain
 
-🌐 1. Live Frontend (Vercel Deployment)
+Built for the Walrus Haulout Hackathon 2025 (AI × Data Track).
 
-Modern React UI
+🔗 Live Demo:
+https://wavein-ai.vercel.app
+https://youtu.be/Q9b1HWsXhmg?si=IZn2taU3b7jqANrU
 
-Input field for verification
+🎯 Purpose of the Project
 
-Connect wallet button (via Sui Wallet Kit)
+As AI models become more advanced, distinguishing AI-generated content from human writing is increasingly difficult. This issue impacts:
 
-Clean UX optimized for demo presentations
+Academic integrity
 
+Journalism & misinformation detection
 
-🤖 2. AI Verification Engine 
+Content authenticity
 
-Shown in the video demo:
+Digital forensics
 
-Local Node.js AI server
+Compliance & regulation of AI-generated media
 
-Text evaluation and reasoning
+Wavein AI Verifier solves this by combining AI inference and linguistic analysis, then storing verified analysis immutably on blockchain.
 
-Generates a “Verification Summary”
+🌟 Key Features
+🤖 AI Semantic Analysis (Groq)
 
-Computes hashes for blockchain storage
+The system uses Llama 3.1 8B Instant via Groq for deep semantic evaluation.
+It detects:
 
+Patterned sentence structure
 
-🔗 3. Blockchain Integration (Concept + UI)
+High coherence & uniformity typical of AI
 
-Designed for:
+Grammar consistency
 
-Storing verification hashes on Sui
+Contextual fingerprints of LLM-generated text
 
-Future on-chain verification module (Move)
+It responds with structured JSON:
 
-Conceptual architecture shown in demo
+{"label": "AI", "confidence": 92, "reason": "Highly consistent patterns"}
 
+🧠 Linguistic Complexity Analysis
 
+Wavein also performs local analysis on the text, including:
 
----
+Readability (Flesch-Kincaid)
 
-🎥 Project Demo Video
+Lexical density
 
-This video shows everything working together:
+Sentence complexity
 
-AI verification
+Word variation
 
-Wallet connection
+These metrics help reduce false positives and increase reliability.
 
-Blockchain storage concept
+⚖️ Hybrid Confidence Score
 
-Full user flow
+To improve accuracy, Wavein merges both sources:
 
-Explanation & presenter intro
-
-
-👉 Demo Video: https://youtu.be/Q9b1HWsXhmg
-
-
----
-
-
-
-📁 Project Structure
-
-wavein_ai_verifier/
-│
-├── frontend/              
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── ...
-│
-├── ai-server/            
-│   ├── server.js
-│   ├── package.json
-│   └── ...
-│
-└── README.md
+finalScore = (0.7 × AI Confidence) + (0.3 × Local Complexity Score)
 
 
----
+This produces a more balanced and trustworthy result.
 
-🛠 Running Locally
+🔗 On-Chain Storage (Sui Blockchain)
 
-⿡ Clone the repo
+Wavein allows users to store their verification results on the Sui blockchain.
 
-git clone https://github.com/Flappybi/wavein_ai_verifire
+Why?
 
+Immutability — stored results cannot be altered
 
----
+Transparency — anyone can verify the data
 
-⿢ Start Frontend (React)
+Auditability — authentic history of AI analysis
 
-cd frontend
+Trust — prevents tampering in academic, legal, or enterprise contexts
+
+Stored on-chain:
+
+Original text (encoded)
+
+AI judgement
+
+Confidence score
+
+Reason
+
+Timestamp
+
+Smart Contract Package ID:
+
+0x3298910abe918f87af5145ff4d7d7329d65ea09bce8cf9687b0bc7d40d561d4e
+
+🖥️ How to Run Locally
+1. Clone the repository
+git clone https://github.com/Flappybi/wavein_ai_verifire.git
+cd wavein_ai_verifire
+
+2. Install dependencies
 npm install
+
+3. Add your environment variables
+
+Create .env:
+
+GROQ_API_KEY=your_api_key_here
+
+4. Run the frontend
 npm run dev
+
+5. Run Vercel serverless functions locally
 vercel dev
 
-Frontend will run at:
 
-http://localhost:5173
+This launches:
 
+React frontend
 
----
+/api/analyze serverless function
 
-⿣ Start AI Backend (Optional for Reviewers)
+📡 API Specification
+POST /api/analyze
 
+Request:
 
-npm install
-node server.js
-
-Backend will run at:
-
-http://localhost:3000
-
-
----
-
-🚀 Live Deployment
-
-Frontend (Vercel):
-👉 https://wavein-ai.vercel.app/
-
-Backend:
-❌ Not deployed yet (local only)
+{
+  "text": "your text here..."
+}
 
 
----
+Response:
 
-🛣 Roadmap (Post-Hackathon Improvements)
+{
+  "label": "HUMAN",
+  "confidence": 74,
+  "reason": "Natural variation | readability=5.3, lexicalDensity=0.49"
+}
 
-Deploy AI backend to Railway / Render
+🧪 System Architecture
+User Input
+   │
+   ▼
+Vercel Serverless API (/api/analyze)
+   │
+   ├─→ Groq AI (semantic analysis)
+   │
+   ├─→ Local text metrics
+   │
+   └─→ Hybrid score fusion
+           │
+           ▼
+     Optional: Store on Sui blockchain
 
-Implement on-chain Move verification module
+🏆 Why This Project Matters
 
-Add hash explorer page
+Wavein tackles a real-world challenge at the intersection of:
 
-Add signature-based validation
+AI authenticity
 
-Store AI verification results permanently using Walrus
+Data integrity
 
-Add model tuning & better scoring
+Trust & transparency
 
+Blockchain verifiability
 
+By combining cutting-edge inference (Groq), linguistic analysis, and on-chain immutability, Wavein demonstrates a strong innovation fit for the AI × Data hackathon theme.
 
----
+👨‍💻 Contributors
 
-🧩 Tech Stack
-
-React 19 + Vite
-
-Sui Wallet Kit
-
-Groq SDK (local AI)
-
-Node.js Express (local backend)
-
-Move (future blockchain module)
-
-
-
----
-
-📌 Notes for Judges
-
-Wavein AI Verifier focuses on:
-
-clear AI + blockchain UX
-
-strong conceptual architecture
-
-full demo presentation
-
-fully working local version
-
-live frontend UI
-
-
-This submission emphasizes clarity, practicality, and future potential — aligned with hackathon goals.
-
+Flappybi — Full-Stack Developer, AI & Blockchain Integration
