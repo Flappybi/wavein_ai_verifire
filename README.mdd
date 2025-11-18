@@ -21,7 +21,7 @@ Connect wallet button (via Sui Wallet Kit)
 Clean UX optimized for demo presentations
 
 
-🤖 2. AI Verification Engine (Local Only for Now)
+🤖 2. AI Verification Engine 
 
 Shown in the video demo:
 
@@ -68,35 +68,19 @@ Explanation & presenter intro
 
 ---
 
-🧠 Why Backend AI is Not Online Yet
 
-Some technical limitations during the hackathon:
-
-Vercel does not support persistent AI servers
-
-AI model requires a dedicated backend (Railway / Render / Docker)
-
-Time constraints
-
-Focus placed on delivering a complete demo & concept instead of full online deployment
-
-
-This is fully acceptable and common in hackathons.
-
-
----
 
 📁 Project Structure
 
 wavein_ai_verifier/
 │
-├── frontend/              # React app (LIVE on Vercel)
+├── frontend/              
 │   ├── src/
 │   ├── public/
 │   ├── package.json
 │   └── ...
 │
-├── ai-server/             # Node.js AI engine (LOCAL only)
+├── ai-server/            
 │   ├── server.js
 │   ├── package.json
 │   └── ...
@@ -120,6 +104,7 @@ git clone https://github.com/Flappybi/wavein_ai_verifire
 cd frontend
 npm install
 npm run dev
+vercel dev
 
 Frontend will run at:
 
@@ -130,7 +115,7 @@ http://localhost:5173
 
 ⿣ Start AI Backend (Optional for Reviewers)
 
-cd ai-server
+
 npm install
 node server.js
 
@@ -144,7 +129,7 @@ http://localhost:3000
 🚀 Live Deployment
 
 Frontend (Vercel):
-👉 https://YOUR-VERCEL-URL.vercel.app/
+👉 https://wavein-ai.vercel.app/
 
 Backend:
 ❌ Not deployed yet (local only)
@@ -179,8 +164,6 @@ Sui Wallet Kit
 Groq SDK (local AI)
 
 Node.js Express (local backend)
-
-Walrus (future file storage integration)
 
 Move (future blockchain module)
 
